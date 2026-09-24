@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Check rows and columns
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid input");
+            return;
+        }
+        int r = sc.nextInt();
+
+        if (!sc.hasNextInt()) {
+            System.out.println("Invalid input");
+            return;
+        }
+        int c = sc.nextInt();
+
+        if (r <= 0 || c <= 0) {
+            System.out.println("Invalid input");
+            return;
+        }
+
+        int[] colSum = new int[c];
+
+        // Read matrix and compute column sums
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (!sc.hasNextInt()) {
+                    System.out.println("Invalid input");
+                    return;
+                }
+                int val = sc.nextInt();
+                colSum[j] += val;
+            }
+        }
+
+        // Print result
+        for (int j = 0; j < c; j++) {
+            System.out.print(colSum[j]);
+            if (j < c - 1) {
+                System.out.print(" ");
+            }
+        }
+    }
+}
